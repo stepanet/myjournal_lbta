@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3BE436A522F8D79100F1C6CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE436A422F8D79100F1C6CE /* AppDelegate.swift */; };
-		3BE436A722F8D79100F1C6CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE436A622F8D79100F1C6CE /* SceneDelegate.swift */; };
 		3BE436A922F8D79100F1C6CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE436A822F8D79100F1C6CE /* ViewController.swift */; };
 		3BE436AC22F8D79100F1C6CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BE436AA22F8D79100F1C6CE /* Main.storyboard */; };
 		3BE436AE22F8D79C00F1C6CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BE436AD22F8D79C00F1C6CE /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 /* Begin PBXFileReference section */
 		3BE436A122F8D79000F1C6CE /* myjournal_lbta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myjournal_lbta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE436A422F8D79100F1C6CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3BE436A622F8D79100F1C6CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3BE436A822F8D79100F1C6CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3BE436AB22F8D79100F1C6CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3BE436AD22F8D79C00F1C6CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				3BE436A422F8D79100F1C6CE /* AppDelegate.swift */,
-				3BE436A622F8D79100F1C6CE /* SceneDelegate.swift */,
 				3BE436A822F8D79100F1C6CE /* ViewController.swift */,
 				3BE436AA22F8D79100F1C6CE /* Main.storyboard */,
 				3BE436AD22F8D79C00F1C6CE /* Assets.xcassets */,
@@ -140,7 +137,6 @@
 			files = (
 				3BE436A922F8D79100F1C6CE /* ViewController.swift in Sources */,
 				3BE436A522F8D79100F1C6CE /* AppDelegate.swift in Sources */,
-				3BE436A722F8D79100F1C6CE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +212,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +266,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -287,6 +283,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7A2MDG26ZT;
 				INFOPLIST_FILE = myjournal_lbta/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +302,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7A2MDG26ZT;
 				INFOPLIST_FILE = myjournal_lbta/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

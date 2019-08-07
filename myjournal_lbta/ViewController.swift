@@ -8,13 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Posts"
+        navigationItem.rightBarButtonItem = .init(title: "Creating posts", style: .plain, target: self, action: #selector(handleCreatePost))
+        
     }
 
+    
+    @objc fileprivate func handleCreatePost() {
+        print("creating post")
+    }
 
 }
 
