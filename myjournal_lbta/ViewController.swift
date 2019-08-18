@@ -11,6 +11,7 @@ import UIKit
 struct Post: Decodable {
     let id: Int
     let title, body: String
+    let createdAt: Double
 }
 
 class Service: NSObject {
@@ -30,7 +31,7 @@ class Service: NSObject {
                     }
                     
                     guard let data = data else { return }
-                 //   print(String(data: data, encoding: .utf8) ?? "")
+                    print(String(data: data, encoding: .utf8) ?? "")
                     
                     do {
                         let posts = try JSONDecoder().decode([Post].self, from: data)
@@ -66,8 +67,10 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         let post = posts[indexPath.row]
+        let dataN = NSDate(timeIntervalSinceNow: post.createdAt)
+        print(dataN)
         cell.textLabel?.text = post.title
-        cell.detailTextLabel?.text = post.body
+        cell.detailTextLabel?.text = String(post.createdAt)
         return cell
     }
     
@@ -87,6 +90,7 @@ class ViewController: UITableViewController {
     
     @objc fileprivate func handleCreatePost() {
         print("creating post")
+        fetchPosts() 
     }
 
 }
