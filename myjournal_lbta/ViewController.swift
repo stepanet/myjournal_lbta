@@ -50,7 +50,7 @@ class ViewController: UITableViewController {
     fileprivate func fetchPosts() {
         Service.shared.fetchPosts { (res) in
             switch res {
-            case.failure(let err): print("failed to fetch posts:", err)
+            case.failure(let err): print("failed to fetch posts:", err) 
             case .success(let posts): print(posts)
             self.posts = posts
             self.tableView.reloadData()
