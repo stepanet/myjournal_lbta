@@ -67,10 +67,9 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         let post = posts[indexPath.row]
-        let dataN = NSDate(timeIntervalSinceNow: post.createdAt)
-        print(dataN)
-        cell.textLabel?.text = post.title
-        cell.detailTextLabel?.text = String(post.createdAt)
+        let date = Date.init(timeIntervalSince1970: post.createdAt / 1000)
+        cell.textLabel?.text = post.title + ":" + post.body
+        cell.detailTextLabel?.text = "\(date)"
         return cell
     }
     
