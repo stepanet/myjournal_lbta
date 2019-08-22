@@ -42,6 +42,42 @@ class Service: NSObject {
             }
             }.resume()
     }
+    
+    func createPost(title: String, body: String,  completion: @escaping (Error?) -> ()) {
+        
+        guard let url = URL(string: "http://localhost:1337/post") else {
+                   return
+               }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        
+        let params = ["title": title,"postBody": body]
+        
+        do {
+            let data = try JSONSerialization.data(withJSONObject: params, options: .init())
+            
+            urlRequest.httpBody = data
+            urlRequest.setValue("aplication/json", forHTTPHeaderField: "content-type")
+            
+            URLSession.shared.dataTask(with: urlRequest) { (data, res, err) in
+                
+                guard let data = data else { return }
+                
+                completion(nil)
+                
+            }.resume()
+            
+            
+        } catch {
+            completion(error)
+        }
+        
+  
+
+        
+    }
+    
 }
 
 
@@ -89,7 +125,18 @@ class ViewController: UITableViewController {
     
     @objc fileprivate func handleCreatePost() {
         print("creating post")
-        fetchPosts() 
+        
+        Service.shared.createPost(title: "IOS", body: "XCODE") { (err) in
+            if let err = err {
+                print("failed to create post object", err)
+                return
+            }
+            
+            print("finished creating post")
+            self.fetchPosts()
+        }
+        
+        
     }
 
 }
