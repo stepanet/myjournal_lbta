@@ -72,12 +72,27 @@ class Service: NSObject {
         } catch {
             completion(error)
         }
-        
-  
-
-        
     }
     
+    func deletePost(id: Int, completion: @escaping (Error?) -> ()) {
+    
+    guard let url = URL(string: "http://localhost:1337/post/\(id)") else {
+               return
+           }
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "DELETE"
+        URLSession.shared.dataTask(with: urlRequest) { (data, res, err) in
+            DispatchQueue.main.async {
+                if let err = err {
+                    completion(err)
+                    return
+                }
+
+                completion(nil)
+            }
+            
+        }.resume()
+    }
 }
 
 
@@ -122,6 +137,21 @@ class ViewController: UITableViewController {
         
     }
 
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let post = self.posts[indexPath.row]
+            Service.shared.deletePost(id: post.id) { (err) in
+                if let err = err {
+                    print("failed to delete", err)
+                    return
+                }
+                print("secessfull")
+                self.posts.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        }
+    }
     
     @objc fileprivate func handleCreatePost() {
         print("creating post")
