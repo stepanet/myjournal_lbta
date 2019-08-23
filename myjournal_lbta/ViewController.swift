@@ -81,10 +81,16 @@ class Service: NSObject {
            }
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "DELETE"
-        URLSession.shared.dataTask(with: urlRequest) { (data, res, err) in
+        URLSession.shared.dataTask(with: urlRequest) { (data, resp, err) in
             DispatchQueue.main.async {
                 if let err = err {
                     completion(err)
+                    return
+                }
+                
+                if let resp = resp as? HTTPURLResponse, resp.statusCode != 200 {
+                    let errorString = String(data: data ?? Data(), encoding: .utf8) ?? ""
+                    completion(NSError(domain: "", code: resp.statusCode, userInfo: [NSLocalizedDescriptionKey: errorString]))
                     return
                 }
 
