@@ -19,7 +19,7 @@ class Service: NSObject {
     
     func fetchPosts(completion: @escaping (Result<[Post], Error>) ->()) {
        
-        guard let url = URL(string: "http://localhost:1337/posts") else {
+        guard let url = URL(string: "http://46.39.251.206/posts") else {
             return
         }
         URLSession.shared.dataTask(with: url) { (data, resp, err) in
@@ -45,7 +45,7 @@ class Service: NSObject {
     
     func createPost(title: String, body: String,  completion: @escaping (Error?) -> ()) {
         
-        guard let url = URL(string: "http://localhost:1337/post") else {
+        guard let url = URL(string: "http://46.39.251.206/post") else {
                    return
                }
         
@@ -76,7 +76,7 @@ class Service: NSObject {
     
     func deletePost(id: Int, completion: @escaping (Error?) -> ()) {
     
-    guard let url = URL(string: "http://localhost:1337/post/\(id)") else {
+    guard let url = URL(string: "http://46.39.251.206/post/\(id)") else {
                return
            }
         var urlRequest = URLRequest(url: url)
